@@ -1,0 +1,57 @@
+"you can place the component to a particular place"
+{isBlogDropdownOpen && (
+  <div
+    className="absolute hidden md:block left-0 z-50 w-[48rem] bg-white/20 dark:bg-gray-900/20 
+    backdrop-blur-lg rounded-2xl border border-gray-300 dark:border-gray-700 
+    shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-all duration-300 
+    animate-fadeIn p-4"
+  >
+    <ul className="grid grid-cols-2 md:grid-cols-5 gap-2 text-md font-medium text-gray-900 dark:text-gray-200">
+      {[
+        { name: "Cardiology", desc: "Heart" },
+        { name: "Orthopedics", desc: "Bones & Joints" },
+        { name: "Gastroenterology", desc: "Digestive System" },
+        { name: "Pediatrics", desc: "Children's Health" },
+        { name: "Gynecology", desc: "Women's Health" },
+        { name: "Urology", desc: "Urinary System" },
+        { name: "Pulmonology", desc: "Respiratory System" },
+        { name: "Ophthalmology", desc: "Eyes" },
+        { name: "ENT", desc: "Ear, Nose & Throat" },
+        { name: "Nephrology", desc: "Kidneys" },
+        { name: "Endocrinology", desc: "Hormones" },
+        { name: "Rheumatology", desc: "Autoimmune Diseases" },
+        { name: "Nutrition & Diet", desc: "Healthy Eating and Nutrition" },
+        { name: "Mental Health", desc: "Emotional and Psychological Well-being" },
+        { name: "New Mom Tips", desc: "Guidance for New Mothers" },
+        { name: "Lifestyle", desc: "Health and Daily Living" },
+        { name: "Dermatology", desc: "Skin and Hair Health" },
+        { name: "Oncology", desc: "Cancer Care and Treatment" },
+        { name: "Fertility Health", desc: "Reproductive Wellness" },
+      ].map(({ name, desc }) => (
+        <li key={name}>
+          <Link
+            href={`/blogs/categories/${name
+              .toLowerCase()
+              .replace(/\s+/g, '-')
+              .replace(/&/g, 'and')}`} // Replace & with 'and'
+            className="block p-3 rounded-2xl transition-all duration-300 
+              shadow-md bg-white/10 dark:bg-gray-800/10 backdrop-blur-md 
+              hover:scale-105 hover:shadow-lg hover:bg-gradient-to-r 
+              hover:from-blue-500 hover:via-purple-600 hover:to-pink-500 
+              dark:hover:from-gray-700 dark:hover:via-gray-800 dark:hover:to-gray-900 
+              hover:text-white dark:hover:text-gray-100"
+          >
+            <span className="font-semibold block break-words">
+              {name}
+            </span>
+            {desc && (
+              <span className="block text-xs text-gray-600 dark:text-gray-400 break-words">
+                {desc}
+              </span>
+            )}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
